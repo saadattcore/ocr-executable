@@ -1,0 +1,48 @@
+Notes for creating environment for deployments
+
+must install python 3.5.2 and pip in order to further progress
+
+1 - Export environment file from conda enviornment 
+1.1 - To export environment file first activate that enviornment
+1.2 - Go to drive location where you want the environment file created . Then run command suppose you created reqirements.txt at location D then D:>pip freeze>requirements.txt
+
+2 - Install python 3.5.2
+
+3 - Create and activate virtual environment for python 3.5.2. 
+3.1 - Go to python35 folder in windows and navigate to envs folder . In case envs folder does not exists then create it manaually and navigate into this envs folder D:>cd envs.
+3.2 - now in order to create virtual environment run command virtalenv ocr-cpu(name of virtualen can be any name convension is to keep in smaller case and use - between two words).
+
+3.3 - in order to activate the newly created environment navigate to scripts folder of newlyadded environment D:>python35>envs>ocr-cpu>scripts
+3.4 - now to activate run command activate ocr-cpu(name of virtual env which we created earlier)
+
+
+4 - Now install all packages from requirement.txt file . To do this run command D:>python35>envs>ocr-cpu> pip install -r F:\requirements.txt . 
+please note that environment must be activate and you must be in activate environment folder(ocr-cpu in our case) before running install command 
+
+
+5 - Now you can run the your app.py scripts to do so env must be activate and run command "set FLASK_APP=app.py" to set flask app then run command "flask run"
+
+(ocr-cpu) C:\Users\t201811\Desktop\work space\OCR-X>set FLASK_APP=app.py
+
+(ocr-cpu) C:\Users\t201811\Desktop\work space\OCR-X>flask run
+
+
+
+Note in my case cv2 module was not found error comes up . it means we was not able to install open cv package we can manually install our compatable packge just simply running pip install command
+
+exmple of installing missing package (ocr-cpu) C:\Users\t201811\AppData\Local\Programs\Python\Python35\envs\ocr-cpu\Scripts>pip install opencv-python==3.1.0 (env must be activated :-) )
+
+
+Creating executable for flask api.
+
+C:\Users\t201811\AppData\Local\Programs\Python\Python35\envs\ocr-cpu\Scripts --> my virtual env
+C:\Users\t201811\Desktop\work space\OCR-X --> project folder 
+C:\Users\t201811\Desktop\work space\OCR-X\dist
+
+
+pyinstaller -F server.py --> this command is used to create .exe
+
+import sys
+sys.setrecursionlimit(5000)
+
+pyinstaller -F server.spec

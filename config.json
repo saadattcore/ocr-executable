@@ -1,0 +1,6 @@
+{
+  "Configurations": {
+    "IsRelease": "false",
+    "EnableCUDADevice":"false"    
+  }
+}
